@@ -28,8 +28,9 @@ io.on('connection', async(socket) => {
     const token = socket.handshake.headers['xtoken'];
     const usuario = await comprobarJWT(token);
 
-    const ip = socket.handshake.headers.origin;
-    console.log(`client's IP address: ${ip}`);
+    console.log(socket);
+    // const ip = socket.handshake.headers.origin;
+    // console.log(`client's IP address: ${ip}`);
 
     if(!usuario) {
         return socket.disconnect();
